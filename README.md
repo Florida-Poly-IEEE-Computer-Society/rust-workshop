@@ -51,11 +51,11 @@ To participate in the workshop, you need to install Rust, a code editor, and the
      rustc --version
      cargo --version
      ```
-### Post-Installation
+### Getting Started
 - Test your setup by creating a new Rust project:
   ```bash
-  cargo new test_project
-  cd test_project
+  cargo new my_project
+  cd my_project
   cargo run
   ```
 - You should expect to see "Hello World on your Console"
@@ -128,8 +128,31 @@ This workshop is going to be taught over 3 days
 - [Rust by Example](https://doc.rust-lang.org/rust-by-example/)
 - [Tokio Async Runtime](https://tokio.rs/)
 
-## Contact
-For setup issues or questions, email the workshop organizers at `<organizer-email>` or join the pre-workshop Q&A session (details shared via email).
+## How to Navigate Workshop Repository (The Folder you Installed)
 
-Happy coding, and we look forward to building with Rust together!
+You will use git to navigate through this code (BTW, you can now throw git as a key word on your resume :) )
 
+### Helpful Git Commands for You
+
+1. `git branch` view branches in repository.
+1. `git status` view changes that you have added.
+1. `git log --oneline` view commits in working branch.
+1. `git checkout <branch-name` change working branch
+
+### Brief guide to Git
+
+What is git?
+- Git is a version control system that tracks changes to files over time.
+
+What is a repository?
+- Stores the files that are maintained with versions.
+
+What is a commit?
+- a snapshot of changes made to files in a repository.
+- Saved locally and each commit has a unique ID
+
+What is a branch?
+- A line of development. 
+- There is a main branch and divergent branches.
+- A branch contains a list of commits
+- You work on one branch at a time (working branch)
