@@ -1,3 +1,6 @@
+use core::fmt;
+use std::collections::VecDeque;
+
 // Enumeration for the different token types that we are expecting
 // to push on to the stack
 #[derive(Debug, Clone)]
@@ -52,5 +55,47 @@ impl PartialOrd for Operator {
         } else {
             Some(std::cmp::Ordering::Less)
         }
+    }
+}
+
+// OutputQueue used in the Shunting Yard Algorithm
+#[derive(Debug, Clone)]
+pub struct OutputQueue {
+    data: VecDeque<Token>,
+}
+
+// Implementation of methods for OutputQueue struct
+impl OutputQueue {
+    pub fn new() -> Self {
+        Self {
+            data: VecDeque::new(),
+        }
+    }
+    pub fn dequeue(&mut self) -> Option<Token> {
+        // Dequeue item at the front of the queue
+        self.data.pop_front()
+    }
+    pub fn queue(&mut self, val: Token) {
+        // Queue iten to the end of the queue
+        self.data.push_back(val);
+    }
+}
+
+// Implementing the display trait for OutputQueue
+// You only need to know that the trait std::fmt::Display is
+// used for macros like println!("") and to have your struct
+// usable for that macros, it needs to implement std::fmt::Display
+impl std::fmt::Display for OutputQueue {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "Queue values {:?}", self.data)
+    }
+}
+
+// Implement the iterator trait
+// This will be useful for calculating from postfix notation
+impl std::iter::Iterator for OutputQueue {
+    type Item = Token;
+    fn next(&mut self) -> Option<Self::Item> {
+        self.dequeue()
     }
 }
