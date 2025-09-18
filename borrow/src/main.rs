@@ -21,8 +21,8 @@ fn main() {
     println!("{msr3}");
 }
 
-fn dangling() -> &String {
-    let str = String::from("Perfectly fine string");
-
-    &str
-}
+// fn dangling() -> &String {
+//     let str = String::from("Perfectly fine string");
+//
+//     &str
+// }
